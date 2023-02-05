@@ -25,9 +25,8 @@ export default function Layout({
   const scrolled = useScroll(50);
 
   return (
-    <>
+    <div className="flex flex-col">
       <Meta {...meta} />
-      <SignInModal />
       <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100" />
       <div
         className={`fixed top-0 w-full ${
@@ -45,18 +44,18 @@ export default function Layout({
               height="30"
               className="mr-2 rounded-sm"
             ></Image>
-            <p>It is Kirk&apos;s birthday!</p>
+            <p className="font-display">It is Kirk&apos;s birthday!</p>
           </Link>
         </div>
       </div>
-      <main className="flex w-full flex-col items-center justify-center py-32">
+      <main className="flex flex-grow w-full flex-col items-center justify-center py-32">
         {children}
       </main>
-      <div className="absolute w-full border-t border-gray-200 bg-white py-5 text-center">
+      <div className="absolute bottom-0 w-full border-t border-gray-200 bg-white py-5 text-center">
         <p className="text-gray-500">
           Made with ❤️ by Mom & Big Bud.
         </p>
       </div>
-    </>
+    </div>
   );
 }

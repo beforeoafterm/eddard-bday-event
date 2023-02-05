@@ -8,11 +8,13 @@ import cx from "classnames";
 import { Bangers, Grandstander } from "@next/font/google";
 
 const bangers = Bangers({
+  subsets: ['latin'],
   weight: "400",
   variable: "--font-bangers",
 });
 
 const grandstander = Grandstander({
+  subsets: ['latin'],
   variable: "--font-grandstander",
 });
 
@@ -21,6 +23,12 @@ export default function MyApp({
   pageProps: { session, ...pageProps },
 }: AppProps<{ session: Session }>) {
   return (
+    <>
+    <style jsx global>{`
+        html {
+          font-family: ${grandstander.style.fontFamily};
+        }
+      `}</style>
     <SessionProvider session={session}>
       <RWBProvider>
         <div className={cx(grandstander.variable, bangers.variable)}>
@@ -29,5 +37,6 @@ export default function MyApp({
       </RWBProvider>
       <Analytics />
     </SessionProvider>
+    </>
   );
 }
