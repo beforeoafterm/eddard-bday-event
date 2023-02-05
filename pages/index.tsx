@@ -26,14 +26,14 @@ export default function Home() {
           },
         }}
       >
-        <motion.h1
+        <motion.img
           className="bg-gradient-to-br from-sky-700 to-sky-300 bg-clip-text text-center font-display text-4xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-7xl md:leading-[5rem]"
+          key='/ned-herobanner.svg'
+          src='/ned-herobanner.svg'
           variants={FADE_DOWN_ANIMATION_VARIANTS}
-        >
-          <Balancer>Kirk Eddard</Balancer>
-        </motion.h1>
+        />
         <motion.p
-          className="mt-6 text-center text-gray-500 md:text-xl"
+          className="border-2 border-sky-500 bg-sky-500/50 backdrop-blur-sm max-w-xs p-4 -mt-20 mx-auto text-center text-white text-2xl uppercase sm:-mt-36 md:max-w-md md:text-4xl"
           variants={FADE_DOWN_ANIMATION_VARIANTS}
         >
           <Balancer>
