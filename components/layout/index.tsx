@@ -29,7 +29,7 @@ export default function Layout({
         } z-30 transition-all`}
       >
         <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between xl:mx-auto">
-          <Link href="/" className="flex items-center font-display text-2xl">
+          <Link href="/" className="flex items-center font-display text-2xl no-underline text-sky-600">
             <Image
               src="/ned-logo.svg"
               alt="Ned's logo"
@@ -37,15 +37,15 @@ export default function Layout({
               height="40"
               className="mr-2 rounded-sm"
             ></Image>
-            <p className="font-display">It is Kirk&apos;s birthday!</p>
+            <p>It is Kirk&apos;s birthday!</p>
           </Link>
         </div>
       </div>
-      <main className="flex flex-grow w-full flex-col items-center justify-center py-32">
+      <main className="flex flex-grow w-full flex-col items-center justify-center min-h-screen">
         {children}
       </main>
       <div className="absolute bottom-0 w-full border-t border-gray-200 bg-white py-5 text-center">
-        <p className="text-gray-500">
+        <p className="font-bold uppercase tracking-[0.15rem]">
           Made with ❤️ by Mom & Big Bud.
         </p>
       </div>
