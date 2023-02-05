@@ -2,6 +2,7 @@ import Layout from "@/components/layout";
 import Balancer from "react-wrap-balancer";
 import { motion } from "framer-motion";
 import { FADE_DOWN_ANIMATION_VARIANTS } from "@/lib/constants";
+import Button from "@/components/shared/button";
 
 export default function Home() {
   return (
@@ -32,6 +33,11 @@ export default function Home() {
           <div className="bubble font-default -mt-20 mx-auto max-w-max p-2 sm:-mt-36 md:max-w-md text-center text-2xl uppercase md:text-4xl">
             is turning 7 years old!
           </div>
+        </motion.div>
+        <motion.div
+          variants={FADE_DOWN_ANIMATION_VARIANTS}
+        >
+          <Button text="Join our Hero's Adventure!" />
         </motion.div>
       </motion.div>
     </Layout>
