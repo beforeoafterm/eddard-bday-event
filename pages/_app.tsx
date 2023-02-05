@@ -5,17 +5,15 @@ import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { Provider as RWBProvider } from "react-wrap-balancer";
 import cx from "classnames";
-import localFont from "@next/font/local";
-import { Inter } from "@next/font/google";
+import { Bangers, Grandstander } from "@next/font/google";
 
-const sfPro = localFont({
-  src: "../styles/SF-Pro-Display-Medium.otf",
-  variable: "--font-sf",
+const bangers = Bangers({
+  weight: "400",
+  variable: "--font-bangers",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
+const grandstander = Grandstander({
+  variable: "--font-grandstander",
 });
 
 export default function MyApp({
@@ -25,7 +23,7 @@ export default function MyApp({
   return (
     <SessionProvider session={session}>
       <RWBProvider>
-        <div className={cx(sfPro.variable, inter.variable)}>
+        <div className={cx(grandstander.variable, bangers.variable)}>
           <Component {...pageProps} />
         </div>
       </RWBProvider>
