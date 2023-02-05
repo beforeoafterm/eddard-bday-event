@@ -37,7 +37,7 @@ export default function Layout({
               height="40"
               className="mr-2 rounded-sm"
             ></Image>
-            <p>It is Kirk&apos;s birthday!</p>
+            <p>Kirk&apos;s 7<sup>th</sup> birthday!</p>
           </Link>
         </div>
       </div>
