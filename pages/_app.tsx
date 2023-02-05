@@ -5,7 +5,7 @@ import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { Provider as RWBProvider } from "react-wrap-balancer";
 import cx from "classnames";
-import { Bangers, Grandstander } from "@next/font/google";
+import { Bangers, Dekko } from "@next/font/google";
 
 const bangers = Bangers({
   subsets: ['latin'],
@@ -13,9 +13,10 @@ const bangers = Bangers({
   variable: "--font-bangers",
 });
 
-const grandstander = Grandstander({
+const dekko = Dekko({
   subsets: ['latin'],
-  variable: "--font-grandstander",
+  weight: '400',
+  variable: "--font-dekko",
 });
 
 export default function MyApp({
@@ -26,12 +27,12 @@ export default function MyApp({
     <>
     <style jsx global>{`
         html {
-          font-family: ${grandstander.style.fontFamily};
+          font-family: ${dekko.style.fontFamily};
         }
       `}</style>
     <SessionProvider session={session}>
       <RWBProvider>
-        <div className={cx(grandstander.variable, bangers.variable)}>
+        <div className={cx(dekko.variable, bangers.variable)}>
           <Component {...pageProps} />
         </div>
       </RWBProvider>
