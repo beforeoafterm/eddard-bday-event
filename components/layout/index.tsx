@@ -31,10 +31,10 @@ export default function Layout({
         <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between xl:mx-auto">
           <Link href="/" className="flex items-center font-display text-2xl">
             <Image
-              src="/logo.png"
-              alt="Precedent logo"
-              width="30"
-              height="30"
+              src="/ned-logo.svg"
+              alt="Ned's logo"
+              width="40"
+              height="40"
               className="mr-2 rounded-sm"
             ></Image>
             <p className="font-display">It is Kirk&apos;s birthday!</p>
