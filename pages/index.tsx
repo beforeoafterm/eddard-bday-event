@@ -1,12 +1,7 @@
-import Card from "@/components/home/card";
 import Layout from "@/components/layout";
 import Balancer from "react-wrap-balancer";
 import { motion } from "framer-motion";
-import { DEPLOY_URL, FADE_DOWN_ANIMATION_VARIANTS } from "@/lib/constants";
-import { Github, Twitter } from "@/components/shared/icons";
-import WebVitals from "@/components/home/web-vitals";
-import ComponentGrid from "@/components/home/component-grid";
-import Image from "next/image";
+import { FADE_DOWN_ANIMATION_VARIANTS } from "@/lib/constants";
 
 export default function Home() {
   return (
@@ -21,25 +16,23 @@ export default function Home() {
           hidden: {},
           show: {
             transition: {
-              staggerChildren: 0.15,
+              staggerChildren: 0.5,
             },
           },
         }}
       >
         <motion.img
-          className="bg-gradient-to-br from-sky-700 to-sky-300 bg-clip-text text-center font-display text-4xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm md:text-7xl md:leading-[5rem]"
-          key='/ned-herobanner.svg'
+          className="w-full"
           src='/ned-herobanner.svg'
           variants={FADE_DOWN_ANIMATION_VARIANTS}
         />
-        <motion.p
-          className="border-2 border-sky-500 bg-sky-500/50 backdrop-blur-sm max-w-xs p-4 -mt-20 mx-auto text-center text-white text-2xl uppercase sm:-mt-36 md:max-w-md md:text-4xl"
+        <motion.div
           variants={FADE_DOWN_ANIMATION_VARIANTS}
         >
-          <Balancer>
+          <div className="bubble font-default -mt-20 mx-auto max-w-max p-2 sm:-mt-36 md:max-w-md text-center text-2xl uppercase md:text-4xl">
             is turning 7 years old!
-          </Balancer>
-        </motion.p>
+          </div>
+        </motion.div>
       </motion.div>
     </Layout>
   );
