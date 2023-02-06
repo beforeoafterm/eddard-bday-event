@@ -1,8 +1,8 @@
-.Button_wrapper {
+.ButtonLink_wrapper {
   @apply flex justify-center my-12
 }
 
-.Button {
+.ButtonLink {
     @apply bg-sky-600
       flex
       font-display
@@ -16,35 +16,36 @@
       md:space-x-4
       md:text-2xl;
     transition: 1s;
-    box-shadow: 6px 6px 0 black;
+    box-shadow: -0.55rem 0.55rem 0 black;
     transform: skewX(-15deg);
 }
 
-.Button:focus {
+.ButtonLink:focus {
   @apply outline-none
 }
 
-.Button:hover {
-    box-shadow: 10px 10px 0 rgb(185 28 28);
+.ButtonLink:hover {
+    box-shadow: -0.9rem 0.9rem 0 rgb(185 28 28);
+    transform: skewX(-15deg) translateY(-0.5rem);
     transition: 0.5s;
 }
 
-.Button .Button_span:nth-child(2) {
+.ButtonLink .ButtonLink_span:nth-child(2) {
     transition: 0.5s;
     margin-right: 0px;
 }
 
-.Button:hover  .Button_span:nth-child(2) {
+.ButtonLink:hover  .ButtonLink_span:nth-child(2) {
     transition: 0.5s;
     margin-right: 1rem;
 }
 
-.Button_span {
+.ButtonLink_span {
   @apply text-center;
   transform: skewX(15deg) 
 }
 
-.Button_span:nth-child(2) {
+.ButtonLink_span:nth-child(2) {
   width: 20px;
 }
   
@@ -60,18 +61,18 @@ path.two {
     transform: translateX(-30%);
 }
 
-.Button:hover path.three {
+.ButtonLink:hover path.three {
     -webkit-animation: color_anim 1s infinite 0.2s;
             animation: color_anim 1s infinite 0.2s;
 }
 
-.Button:hover path.one {
+.ButtonLink:hover path.one {
     transform: translateX(0%);
     -webkit-animation: color_anim 1s infinite 0.6s;
             animation: color_anim 1s infinite 0.6s;
 }
 
-.Button:hover path.two {
+.ButtonLink:hover path.two {
     transform: translateX(0%);
     -webkit-animation: color_anim 1s infinite 0.4s;
             animation: color_anim 1s infinite 0.4s;

@@ -1,8 +1,7 @@
 import Layout from "@/components/layout";
-import Balancer from "react-wrap-balancer";
 import { motion } from "framer-motion";
 import { FADE_DOWN_ANIMATION_VARIANTS } from "@/lib/constants";
-import Button from "@/components/shared/button";
+import ButtonLink from "@/components/shared/button-link";
 
 export default function Home() {
   return (
@@ -37,7 +36,7 @@ export default function Home() {
         <motion.div
           variants={FADE_DOWN_ANIMATION_VARIANTS}
         >
-          <Button text="Join our Hero's Adventure!" />
+          <ButtonLink href="/details" text="Join our Hero's Adventure!" />
         </motion.div>
       </motion.div>
     </Layout>
