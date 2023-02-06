@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <Layout>
       <motion.div
-        className="py-16 px-5 w-full"
+        className="max-w-screen-xl mx-auto py-16 px-5 w-full"
         initial="hidden"
         whileInView="show"
         animate="show"
