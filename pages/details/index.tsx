@@ -77,7 +77,7 @@ export default function Home() {
         <motion.div
           variants={FADE_DOWN_ANIMATION_VARIANTS}
         >
-          <ButtonLink href="#" text="Join our Hero's Adventure!" />
+          <ButtonLink href="#" text="See what heroic gifts you can bring!" />
         </motion.div>
       </motion.div>
     </Layout>
