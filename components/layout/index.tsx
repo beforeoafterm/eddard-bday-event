@@ -44,7 +44,7 @@ export default function Layout({
       <main className="flex flex-grow w-full flex-col items-center justify-center min-h-screen">
         {children}
       </main>
-      <div className="absolute bottom-0 w-full border-t border-gray-200 bg-white py-5 text-center">
+      <div className="fixed bottom-0 w-full border-t border-gray-200 bg-white py-5 text-center">
         <p className="font-bold uppercase tracking-[0.15rem]">
           Made with ❤️ by Mom & Big Bud.
         </p>
