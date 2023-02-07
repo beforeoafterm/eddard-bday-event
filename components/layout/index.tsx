@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
@@ -22,11 +23,10 @@ export default function Layout({
       <Meta {...meta} />
       <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100" />
       <div
-        className={`fixed top-0 w-full ${
-          scrolled
-            ? "border-b border-gray-200 bg-white/50 backdrop-blur-xl"
-            : "bg-white/0"
-        } z-30 transition-all`}
+        className={`fixed top-0 w-full ${scrolled
+          ? "border-b border-gray-200 bg-white/50 backdrop-blur-xl"
+          : "bg-white/0"
+          } z-30 transition-all`}
       >
         <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between xl:mx-auto">
           <Link href="/" className="flex items-center font-display text-2xl no-underline text-sky-600">
@@ -42,7 +42,23 @@ export default function Layout({
         </div>
       </div>
       <main className="flex flex-grow w-full flex-col items-center justify-center min-h-screen">
-        {children}
+        <motion.div
+          className="max-w-screen-xl mx-auto py-16 px-5 w-full"
+          initial="hidden"
+          whileInView="show"
+          animate="show"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            show: {
+              transition: {
+                staggerChildren: 0.5,
+              },
+            },
+          }}
+        >
+          {children}
+        </motion.div>
       </main>
       <div className="fixed bottom-0 w-full border-t border-gray-200 bg-white py-5 text-center">
         <p className="font-bold uppercase tracking-[0.15rem]">
