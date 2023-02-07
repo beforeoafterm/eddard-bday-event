@@ -14,6 +14,11 @@ const nextConfig = {
       },
     ];
   },
+  serverRuntimeConfig: {
+    API_EMAIL: process.env.API_EMAIL,
+    API_PW: process.env.API_PW,
+    API_URL: process.env.API_URL
+  }
 };
 
 module.exports = nextConfig;
