@@ -28,15 +28,19 @@ export default function InvitationPage({ attendees }: InvitationPageProps) {
 }
 
 export async function getStaticPaths() {
-  const directus = await getDirectusClient()
-  const { data: attendees } = await directus.items("attendees").readByQuery({
+  const { data: attendees } = await getAttendees({
     fields: "id",
-    filter: { status: { _eq: "published" } },
+    filter: { status: { _eq: "invited" } },
     limit: -1,
   })
 
   const paths = attendees && attendees.map((attendee) => {
-    params: { id: attendee.id }
+    const attendeeItem = attendee as Attendee
+    return {
+      params: {
+        invitationId: attendeeItem.id
+      }
+    }
   })
 
   return {
