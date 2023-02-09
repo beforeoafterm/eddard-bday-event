@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply bg-center bg-cover bg-fixed;
+    background-image: url(/bg-comic.svg);
+  }
+}
+
 @layer components {
   /* .bubble containers: add the texture above a solid background */
   .bubble {

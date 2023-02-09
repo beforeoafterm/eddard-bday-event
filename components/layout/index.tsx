@@ -1,3 +1,4 @@
+import cn from "classnames";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,12 +22,14 @@ export default function Layout({
   return (
     <div className="flex flex-col">
       <Meta {...meta} />
-      <div className="fixed h-screen w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-100" />
       <div
-        className={`fixed top-0 w-full ${scrolled
-          ? "border-b border-gray-200 bg-white/50 backdrop-blur-xl"
-          : "bg-white/0"
-          } z-30 transition-all`}
+        className={cn(
+          "fixed top-0 w-full",
+          "z-30 transition-all",
+          {
+            ["border-b-4 border-black bg-white"]: scrolled,
+            ["bg-white/0"]: !scrolled,
+          })}
       >
         <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between xl:mx-auto">
           <Link href="/" className="flex items-center font-display text-2xl no-underline text-sky-600">
