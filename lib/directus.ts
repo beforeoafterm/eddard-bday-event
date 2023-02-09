@@ -15,9 +15,19 @@ export async function getDirectusClient() {
   return directus;
 }
 
-export const getAttendees = async (query?: QueryMany<unknown> | undefined) => {
+export const getAttendees = async (
+  query?: QueryMany<unknown> | undefined
+) => {
   const client = await getDirectusClient()
   return await client.items("Attendee").readByQuery(query)
+}
+
+export const getAttendee = async (
+  id: string,
+  query?: QueryMany<unknown> | undefined
+) => {
+  const client = await getDirectusClient()
+  return await client.items("Attendee").readOne(id, query)
 }
 
 export default directus;
