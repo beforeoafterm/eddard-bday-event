@@ -1,5 +1,5 @@
-import { ParsedUrlQuery } from "querystring";
-import { Attendee } from "./Attendees.types";
+import { ParsedUrlQuery } from 'querystring'
+import { Attendee } from './Attendees.types'
 
 export interface InvitationPageProps {
   attendee: Attendee
