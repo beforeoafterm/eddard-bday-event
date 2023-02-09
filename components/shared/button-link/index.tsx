@@ -4,8 +4,9 @@ import { ReactNode } from "react";
 import { Url } from "url";
 import styles from './button-link.module.css';
 
-interface ButtonLinkProps {
-  href: string
+type AnchorProps = JSX.IntrinsicElements["a"];
+
+interface ButtonLinkProps extends AnchorProps {
   text: string
   theme?: 'primary' | 'secondary'
 }
@@ -22,7 +23,7 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
           [styles.ButtonLink__primary]: theme === 'primary',
           [styles.ButtonLink__secondary]: theme === 'secondary',
         })}
-        href={href}
+        href={href as string}
       >
         <span className={styles.ButtonLink_span}>{text}</span>
         <span className={cn(
