@@ -3,7 +3,8 @@
 }
 
 .ButtonLink {
-    @apply bg-sky-600
+    @apply border-4
+      border-black
       flex
       font-display
       items-center
@@ -23,6 +24,15 @@
 .ButtonLink:focus {
   @apply outline-none
 }
+
+.ButtonLink__primary {
+  @apply bg-sky-600
+}
+
+.ButtonLink__secondary {
+  @apply bg-white text-black
+}
+
 
 .ButtonLink:hover {
     box-shadow: -0.9rem 0.9rem 0 rgb(185 28 28);
@@ -47,6 +57,10 @@
 
 .ButtonLink_span:nth-child(2) {
   width: 20px;
+}
+
+.ButtonLink__secondary .ButtonLink_icon {
+  @apply hidden;
 }
   
 /**************SVG****************/
