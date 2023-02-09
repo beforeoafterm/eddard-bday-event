@@ -1,5 +1,5 @@
 import getConfig from "next/config";
-import { Directus } from "@directus/sdk";
+import { Directus, QueryMany } from "@directus/sdk";
 
 const { serverRuntimeConfig } = getConfig();
 const { API_EMAIL, API_PW, API_URL } = serverRuntimeConfig;
@@ -7,6 +7,7 @@ const { API_EMAIL, API_PW, API_URL } = serverRuntimeConfig;
 const directus = new Directus(API_URL);
 
 export async function getDirectusClient() {
+  // Used email and password auth instead of static token so that we are getting a temporary access token instead.
   if (API_EMAIL && API_PW) {
     await directus.auth.login({ email: API_EMAIL, password: API_PW });
   }
@@ -14,9 +15,9 @@ export async function getDirectusClient() {
   return directus;
 }
 
-export const getAttendees = async () => {
+export const getAttendees = async (query?: QueryMany<unknown> | undefined) => {
   const client = await getDirectusClient()
-  return await client.items("attendees").readByQuery()
+  return await client.items("Attendee").readByQuery(query)
 }
 
 export default directus;
