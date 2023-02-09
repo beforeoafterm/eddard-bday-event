@@ -13,6 +13,15 @@ import { Attendee } from "types/Attendees.types";
 import styles from "./invitation.module.css"
 
 export default function InvitationPage({ attendee }: InvitationPageProps) {
+  
+  const confirmInvitation = async () => {
+    
+  }
+
+  const declineInvitation = async () => {
+    
+  }
+
   return (
     <Layout>
       <motion.div
@@ -41,16 +50,21 @@ export default function InvitationPage({ attendee }: InvitationPageProps) {
           "underline",
           "underline-offset-4"
         )}>
-          Please fill out the form below to RSVP for the celebration!
+          Please RSVP for the celebration below!
         </p>
         <p className={cn(styles.InvitationPage_message)}>
-          Don&apos;t forget to indicate if you&apos;ll be wearing a heroic costume, as we&apos;ll have a costume contest for the bravest and most dynamic hero, with a magnificent reward for the champion.
+          Let us know if you&apos;ll be wearing a heroic costume, as we&apos;ll have a costume contest for the bravest and most dynamic hero, with a magnificent reward for the champion.
+        </p>
+        <p className={cn(styles.InvitationPage_message, "font-black")}>
+          - Kirk (aka. Spiderman Bud)
         </p>
       </motion.div>
       <motion.div
+        className={cn(styles.InvitationPage_buttons)}
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
-        <ButtonLink href="#" text="Submit" />
+        <ButtonLink href="#" text="Sorry, can't go..." theme="secondary" onClick={confirmInvitation} />
+        <ButtonLink href="#" text="Count me in! Let's gooo!" onClick={declineInvitation} />
       </motion.div>
     </Layout >
   );
