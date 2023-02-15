@@ -1,10 +1,15 @@
 import getConfig from 'next/config'
-import { Directus, QueryMany } from '@directus/sdk'
+import { Directus, ItemInput, QueryMany } from '@directus/sdk'
+import { Attendee } from 'types/Attendees.types'
 
 const { serverRuntimeConfig } = getConfig()
 const { API_EMAIL, API_PW, API_URL } = serverRuntimeConfig
 
-const directus = new Directus(API_URL)
+type DirectusSchema = {
+  Attendee: Attendee
+}
+
+const directus = new Directus<DirectusSchema>(API_URL)
 
 export async function getDirectusClient() {
   // Used email and password auth instead of static token so that we are getting a temporary access token instead.
@@ -16,7 +21,7 @@ export async function getDirectusClient() {
 }
 
 export const getAttendees = async (
-  query?: QueryMany<unknown> | undefined
+  query?: QueryMany<Attendee> | undefined
 ) => {
   const client = await getDirectusClient()
   return await client.items('Attendee').readByQuery(query)
@@ -24,10 +29,18 @@ export const getAttendees = async (
 
 export const getAttendee = async (
   id: string,
-  query?: QueryMany<unknown> | undefined
+  query?: QueryMany<Attendee> | undefined
 ) => {
   const client = await getDirectusClient()
   return await client.items('Attendee').readOne(id, query)
+}
+
+export const updateAttendee = async (
+  id: string,
+  attendee: ItemInput<Attendee>
+) => {
+  const client = await getDirectusClient()
+  return await client.items('Attendee').updateOne(id, attendee)
 }
 
 export default directus
