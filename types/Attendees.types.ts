@@ -1,4 +1,4 @@
-export interface Attendee {
+export type Attendee = {
   id: string
   status: AttendeeStatus
   date_created: Date
@@ -10,6 +10,6 @@ export interface Attendee {
   relatedAttendees: Attendee[]
 }
 
-type AttendeeStatus = 'confirmed' | 'invited' | 'declined'
+export type AttendeeStatus = 'confirmed' | 'invited' | 'declined'
 
 type AttendeeAge = 'child' | 'adult'
