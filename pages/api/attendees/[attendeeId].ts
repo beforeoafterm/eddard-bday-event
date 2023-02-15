@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
   
   if (req.method === 'PATCH') {
-    const body = req.body as ItemInput<Attendee>
+    const body = req.body satisfies ItemInput<Attendee>
     const updatedAttendee = await updateAttendee(
       attendeeId as string,
       body
