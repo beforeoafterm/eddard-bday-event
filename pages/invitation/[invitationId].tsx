@@ -3,23 +3,30 @@ import { motion } from 'framer-motion'
 import { GetStaticProps } from 'next'
 
 import Layout from '@/components/layout'
-import ButtonLink from '@/components/shared/button-link'
+import Button from '@/components/shared/button'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/lib/constants'
-import { getAttendees, getAttendee } from '@/lib/directus'
+import { getAttendees, getAttendee, updateAttendee } from '@/lib/directus'
 
 import { InvitationPageProps, InvitationParams } from 'types/Invitation.types'
 import { Attendee } from 'types/Attendees.types'
 
 import styles from './invitation.module.css'
+import Image from 'next/image'
 
 export default function InvitationPage({ attendee }: InvitationPageProps) {
   
   const confirmInvitation = async () => {
-
+    const response = await updateAttendee(attendee.id, {
+      status: 'confirmed'
+    })
+    console.log(response)
   }
 
   const declineInvitation = async () => {
-    
+    const response = await updateAttendee(attendee.id, {
+      status: 'declined'
+    })
+    console.log(response)
   }
 
   return (
@@ -48,7 +55,24 @@ export default function InvitationPage({ attendee }: InvitationPageProps) {
         </p>
         <div className={cn(styles.InvitationPage_eventDetails)}>
           <div className={cn(styles.InvitationPage_eventDetail)}>
-            <h2 className={cn(styles.InvitationPage_eventDetail)}>Date</h2>
+            <h2 className={cn(styles.InvitationPage_eventDetailLabel)}>Date and Time</h2>
+            <p className={cn(styles.InvitationPage_eventDetailText)}>
+              March 5, 2023 - 5:00pm-8:00pm
+              <a
+                className={cn(styles.InvitationPage_a)}
+                href='https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NjQxaHB2NGhlYWpzMnNhYmxlbHJjZDFhNzEgZmFtaWx5MDMwNjk4OTg0ODkyNDIyNzk4NzRAZw&amp;tmsrc=family03069898489242279874%40group.calendar.google.com'
+                target='_blank'
+                rel='noreferrer'
+              >
+                (Add to Google calendar)
+              </a>
+            </p>
+          </div>
+          <div className={cn(styles.InvitationPage_eventDetail)}>
+            <h2 className={cn(styles.InvitationPage_eventDetailLabel)}>Location</h2>
+            <p className={cn(styles.InvitationPage_eventDetailText)}>
+              Heroes HQ at Shangri-La Plaza Level 5, East Wing (beside Breakout PH)
+            </p>
           </div>
         </div>
         <p
@@ -70,12 +94,14 @@ export default function InvitationPage({ attendee }: InvitationPageProps) {
         className={cn(styles.InvitationPage_buttons)}
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
-        <ButtonLink
-          href='#'
-          text="Sorry, can't go..."
+        <Button
           theme='secondary'
-          onClick={confirmInvitation} />
-        <ButtonLink href='#' text="Count me in! Let's gooo!" onClick={declineInvitation} />
+          onClick={declineInvitation}>
+            Sorry, I must decline...
+        </Button>
+        <Button onClick={confirmInvitation}>
+          Count me in! Let&apos;s gooo!
+        </Button>
       </motion.div>
     </Layout >
   )
