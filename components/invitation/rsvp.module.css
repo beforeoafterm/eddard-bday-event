@@ -1,0 +1,50 @@
+.Rsvp_panel {
+  @apply bg-white border-4 border-black max-w-3xl mt-8 mx-auto p-8 w-full;
+  box-shadow: 0 6px 6px -6px #000;
+}
+
+.Rsvp_heading {
+  @apply font-display text-4xl tracking-wider
+}
+
+.Rsvp_message {
+  @apply mb-8 text-2xl tracking-wider
+}
+
+.Rsvp_inviteeName {
+  @apply bg-clip-text bg-gradient-to-br from-sky-600 to-sky-300 text-transparent
+}
+
+.Rsvp_eventDetail {
+  @apply mb-8
+}
+
+.Rsvp_eventDetailLabel {
+  @apply font-display text-2xl text-sky-500
+}
+
+.Rsvp_eventDetailText {
+  @apply font-black text-3xl
+}
+
+.Rsvp_a {
+  @apply block text-lg underline underline-offset-4 my-4
+}
+
+.Rsvp_buttons {
+  @apply flex flex-col pb-12
+}
+
+@screen lg {
+  .Rsvp_buttons {
+    @apply flex-row justify-center space-x-8
+  }
+
+  .Rsvp_eventDetailLabel {
+  @apply text-3xl
+}
+
+.Rsvp_eventDetailText {
+  @apply text-4xl
+}
+}
