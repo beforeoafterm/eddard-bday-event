@@ -1,21 +1,19 @@
 import cn from 'classnames'
 import { motion } from 'framer-motion'
 import { useFormik } from 'formik'
+import { GetServerSideProps } from 'next'
+import { useState } from 'react'
 import * as yup from 'yup'
 
 import Button from '@/components/shared/button'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/lib/constants'
+import { getAttendee } from '@/lib/directus'
 
-import { Attendee } from 'types/Attendees.types'
+import { InvitationPageProps, InvitationParams } from 'types/Invitation.types'
 
 import styles from './form.module.css'
-import { ChangeEventHandler, useState } from 'react'
 
-export default function Form({
-  attendee,
-}: {
-  attendee: Attendee;
-}) {
+export default function Form({ attendee }: InvitationPageProps) {
 
   const [isHero, setIsHero] = useState<boolean>(true)
 
@@ -152,4 +150,16 @@ export default function Form({
       </form>
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  const { invitationId } = params as InvitationParams
+  console.log(invitationId)
+
+  const attendee = await getAttendee(invitationId)
+  return {
+    props: {
+      attendee,
+    },
+  }
 }
