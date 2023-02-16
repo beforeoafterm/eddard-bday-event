@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/router'
 
 import Button from '@/components/shared/button'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/lib/constants'
@@ -7,13 +8,19 @@ import { FADE_DOWN_ANIMATION_VARIANTS } from '@/lib/constants'
 import { Attendee } from 'types/Attendees.types'
 
 import styles from './rsvp.module.css'
+import { useState } from 'react'
+import { LoadingSpinner } from '../shared/icons'
 
 export default function Rsvp({
   attendee,
 }: {
   attendee: Attendee;
 }) {
+  const router = useRouter()
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+
   const confirmInvitation = async () => {
+    setIsLoading(true)
     const response = await fetch(`/api/attendees/${attendee.id}`, {
       body: JSON.stringify({
         status: 'confirmed'
@@ -23,11 +30,13 @@ export default function Rsvp({
       },
       method: 'PATCH'
     })
-    const updateAttendee = await response.json()
 
-    // Handle possible errors
+    // TODO: Handle possible errors
 
     // Redirect to invitation form page
+    router.push({
+      pathname: `/invitation/${attendee.id}/form`
+    })
   }
 
   const declineInvitation = async () => {
@@ -45,6 +54,12 @@ export default function Rsvp({
     // Handle possible errors
 
     // Redirect to declined message page
+  }
+
+  if (isLoading) {
+    return (
+      <LoadingSpinner />
+    )
   }
 
   return (
