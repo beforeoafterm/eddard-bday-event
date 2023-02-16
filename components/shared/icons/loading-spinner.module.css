@@ -1,16 +1,19 @@
 .spinner {
   color: gray;
-  display: inline-block;
+  display: block;
   position: relative;
+  text-align: center;
+  margin: 0 auto;
   width: 80px;
   height: 80px;
-  transform: scale(0.3) translateX(-95px);
+  transform: scale(1.5);
 }
 .spinner div {
   transform-origin: 40px 40px;
   animation: spinner 1.2s linear infinite;
 }
 .spinner div:after {
+  @apply bg-sky-500;
   content: " ";
   display: block;
   position: absolute;
@@ -19,7 +22,6 @@
   width: 6px;
   height: 20px;
   border-radius: 20%;
-  background: black;
 }
 .spinner div:nth-child(1) {
   transform: rotate(0deg);
