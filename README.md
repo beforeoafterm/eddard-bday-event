@@ -5,12 +5,14 @@
 Mom and Big Bud built this event web app for Kirk Eddard's 7th Birthday.
 
 ## Features
+
 - Event details
 - RSVP
 - Gift ideas
 - API integration with Directus Cloud
 
 ## Tech Stack
+
 ### Frameworks
 
 - [Next.js](https://nextjs.org/) – React framework for building performant apps with the best developer experience
@@ -20,7 +22,6 @@ Mom and Big Bud built this event web app for Kirk Eddard's 7th Birthday.
 ### Platforms
 
 - [Vercel](https://vercel.com/) – Easily preview & deploy changes with git
-- [Railway](https://railway.app/) – Easily provision a PostgreSQL database (no login required)
 
 ### UI
 
