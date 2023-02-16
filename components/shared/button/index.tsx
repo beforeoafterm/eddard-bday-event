@@ -11,11 +11,13 @@ interface ButtonProps extends HtmlButtonProps {
 const Button: React.FC<ButtonProps> = ({
   children,
   onClick,
-  theme
+  theme,
+  ...props
 }) => {
   return (
     <div className={styles.Button_wrapper}>
       <button
+        {...props}
         className={cn(styles.Button, {
           [styles.Button__primary]: theme === 'primary',
           [styles.Button__secondary]: theme === 'secondary',
