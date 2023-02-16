@@ -32,6 +32,8 @@ Mom and Big Bud built this event web app for Kirk Eddard's 7th Birthday.
 - [`@next/font`](https://nextjs.org/docs/basic-features/font-optimization) – Optimize custom fonts and remove external network requests for improved performance
 - [`@vercel/og`](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation) – Generate dynamic Open Graph images on the edge
 - [`react-wrap-balancer`](https://github.com/shuding/react-wrap-balancer) – Simple React component that makes titles more readable
+- Formik - for form creation
+- Zod - for schema validation
 
 ### Hooks and Utilities
 
