@@ -115,7 +115,7 @@ export default function Rsvp({
         <Button
           theme='secondary'
           onClick={declineInvitation}>
-            Sorry, I must decline...
+          Sorry, I must decline...
         </Button>
         <Button onClick={confirmInvitation}>
           Count me in! Let&apos;s gooo!
