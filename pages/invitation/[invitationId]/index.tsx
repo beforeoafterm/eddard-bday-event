@@ -25,11 +25,9 @@ export default function InvitationPage({ attendee }: InvitationPageProps) {
       return
     }
     setIsLoading(false)
-  }, [router, attendee.status, attendee.id, isLoading])
+  }, [router, attendee.status, attendee.id])
 
   if (isLoading) {
-    console.log('loading')
-
     return (
       <Layout>
         <LoadingSpinner />
