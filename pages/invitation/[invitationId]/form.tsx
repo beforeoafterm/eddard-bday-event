@@ -2,20 +2,35 @@ import cn from 'classnames'
 import { motion } from 'framer-motion'
 import { useFormik } from 'formik'
 import { GetServerSideProps } from 'next'
-import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 import * as yup from 'yup'
 
+import Layout from '@/components/layout'
 import Button from '@/components/shared/button'
+import { LoadingSpinner } from '@/components/shared/icons'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/lib/constants'
 import { getAttendee } from '@/lib/directus'
 
 import { InvitationPageProps, InvitationParams } from 'types/Invitation.types'
 
 import styles from './form.module.css'
+import { Attendee } from 'types/Attendees.types'
 
 export default function Form({ attendee }: InvitationPageProps) {
-
+  const router = useRouter()
   const [isHero, setIsHero] = useState<boolean>(true)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+
+  useEffect(() => {
+    if (attendee.status !== 'confirmed') {
+      router.push({
+        pathname: `/invitation/${attendee.id}`
+      })
+      return
+    }
+    setIsLoading(false)
+  }, [router, attendee.status, attendee.id])
 
   const initialValues = {
     email: '',
@@ -38,31 +53,33 @@ export default function Form({ attendee }: InvitationPageProps) {
 
   const formik = useFormik({
     initialValues,
-    onSubmit: (values, helpers) => {
-      console.log(values)
+    onSubmit: async (values) => {
+      const response = await fetch(`/api/attendees/${attendee.id}`, {
+        body: JSON.stringify(values),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+        method: 'PATCH'
+      })
+      const updatedAttendee: Attendee = await response.json()
+      const group = updatedAttendee.groupedAttendees
+      if (group && group.length !== 0) {
+
+      }
     },
     validationSchema: isHero ? isHeroSchema : isNotHeroSchema,
   })
 
-  const confirmInvitation = async () => {
-    const response = await fetch(`/api/attendees/${attendee.id}`, {
-      body: JSON.stringify({
-        status: 'confirmed'
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-      method: 'PATCH'
-    })
-    const updateAttendee = await response.json()
-
-    // Handle possible errors
-
-    // Redirect to invitation form page
+  if (isLoading) {
+    return (
+      <Layout>
+        <LoadingSpinner />
+      </Layout>
+    )
   }
 
   return (
-    <>
+    <Layout>
       <motion.div
         className={cn(styles.Form_panel)}
         variants={FADE_DOWN_ANIMATION_VARIANTS}
@@ -148,7 +165,7 @@ export default function Form({ attendee }: InvitationPageProps) {
           </Button>
         </motion.div>
       </form>
-    </>
+    </Layout>
   )
 }
 
