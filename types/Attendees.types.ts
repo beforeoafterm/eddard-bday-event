@@ -5,9 +5,11 @@ export type Attendee = {
   date_updated: Date
   firstName: string
   lastName: string
+  email: string
+  heroName: string
   age: AttendeeAge
   canInvite: boolean
-  relatedAttendees: Attendee[]
+  groupedAttendees: Attendee[]
 }
 
 export type AttendeeStatus = 'confirmed' | 'invited' | 'declined'
