@@ -1,0 +1,50 @@
+.Accomplished_panel {
+  @apply mx-auto mt-8 w-full max-w-3xl border-4 border-black bg-white p-8;
+  box-shadow: 0 6px 6px -6px #000;
+}
+
+.Accomplished_heading {
+  @apply font-display text-4xl tracking-wider;
+}
+
+.Accomplished_message {
+  @apply mb-8 text-2xl tracking-wider;
+}
+
+.Accomplished_inviteeName {
+  @apply bg-gradient-to-br from-sky-600 to-sky-300 bg-clip-text text-transparent;
+}
+
+.Accomplished_eventDetail {
+  @apply mb-8;
+}
+
+.Accomplished_eventDetailLabel {
+  @apply font-display text-2xl text-sky-500;
+}
+
+.Accomplished_eventDetailText {
+  @apply text-3xl font-black;
+}
+
+.Accomplished_a {
+  @apply my-4 block text-lg underline underline-offset-4;
+}
+
+.Accomplished_buttons {
+  @apply flex flex-col pb-12;
+}
+
+@screen lg {
+  .Rsvp_eventDetailLabel {
+    @apply text-3xl;
+  }
+
+  .Rsvp_eventDetailText {
+    @apply text-4xl;
+  }
+
+  .Accomplished_buttons {
+    @apply flex-row justify-center space-x-8;
+  }
+}
