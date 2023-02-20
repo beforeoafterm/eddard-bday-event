@@ -32,6 +32,14 @@ export default function InvitationPage({ attendee }: InvitationPageProps) {
       return
     }
 
+    if (attendee.status === 'accomplished') {
+      router.push({
+        pathname: `/invitation/${attendee.id}/accomplished`
+      })
+      return
+    }
+
+
     setIsLoading(false)
   }, [router, attendee.status, attendee.id])
 
