@@ -40,7 +40,8 @@ export default function Rsvp({
   }
 
   const declineInvitation = async () => {
-    const response = await fetch(`/api/attendees/${attendee.id}`, {
+    setIsLoading(true)
+    await fetch(`/api/attendees/${attendee.id}`, {
       body: JSON.stringify({
         status: 'declined'
       }),
@@ -49,11 +50,13 @@ export default function Rsvp({
       },
       method: 'PATCH'
     })
-    const updateAttendee = await response.json()
 
-    // Handle possible errors
+    // TODO: Handle possible errors
 
     // Redirect to declined message page
+    router.push({
+      pathname: `/invitation/${attendee.id}/declined`
+    })
   }
 
   if (isLoading) {
