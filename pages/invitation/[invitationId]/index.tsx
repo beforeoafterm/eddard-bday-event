@@ -24,6 +24,14 @@ export default function InvitationPage({ attendee }: InvitationPageProps) {
       })
       return
     }
+
+    if (attendee.status === 'declined') {
+      router.push({
+        pathname: `/invitation/${attendee.id}/declined`
+      })
+      return
+    }
+
     setIsLoading(false)
   }, [router, attendee.status, attendee.id])
 
