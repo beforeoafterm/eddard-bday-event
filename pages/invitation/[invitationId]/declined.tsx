@@ -95,7 +95,7 @@ export default function Declined({ attendee }: InvitationPageProps) {
       >
         <ButtonLink
           theme='secondary'
-          href='/gift-ideas'
+          href='/gift-suggestions'
           text='Check out what heroic gifts you can give!' />
         <Button onClick={confirmInvitation}>
           I change my mind, I want to go!
