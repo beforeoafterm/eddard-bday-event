@@ -1,5 +1,5 @@
 .InvitationPage_panel {
-  @apply mx-auto mt-8 w-full max-w-3xl border-4 border-black bg-white p-8;
+  @apply mx-auto my-8 w-full max-w-3xl border-4 border-black bg-white p-8;
   box-shadow: 0 6px 6px -6px #000;
 }
 

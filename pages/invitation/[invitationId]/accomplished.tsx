@@ -49,6 +49,27 @@ export default function Accomplished({ attendee }: InvitationPageProps) {
         className={cn(styles.InvitationPage_panel)}
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
+        <p
+          className={cn(styles.InvitationPage_message)}>
+          We&apos;re thrilled to hear that you&apos;ll be joining us for Ned&apos;s (Kirk) big birthday bash! You&apos;ll be our newest hero to join our heroic squad, and we&apos;re looking forward to having you with us.
+        </p>
+        <p className={cn(styles.InvitationPage_message)}>
+          We&apos;re planning an epic laser tag game, heroic snacks and drinks, and a costume contest for the bravest heroes. We&apos;re also counting on you to show off your superhero moves on the dance floor!
+        </p>
+        <p className={cn(styles.InvitationPage_message)}>
+          Thank you for joining us for this legendary celebration. We can&apos;t wait to see you there and make unforgettable heroic memories together.
+        </p>
+        <p className={cn(styles.InvitationPage_message, 'font-black')}>
+          Stay heroic,
+        </p>
+        <p className={cn(styles.InvitationPage_message, 'font-black')}>
+          - Kirk and the Bud-squad Heroes
+        </p>
+      </motion.div>
+      <motion.div
+        className={cn(styles.InvitationPage_panel)}
+        variants={FADE_DOWN_ANIMATION_VARIANTS}
+      >
         <div className={cn(styles.InvitationPage_eventDetails)}>
           <div className={cn(styles.InvitationPage_eventDetail)}>
             <h2 className={cn(styles.InvitationPage_eventDetailLabel)}>Date and Time</h2>
@@ -79,27 +100,6 @@ export default function Accomplished({ attendee }: InvitationPageProps) {
               referrerPolicy='no-referrer-when-downgrade'></iframe>
           </div>
         </div>
-      </motion.div>
-      <motion.div
-        className={cn(styles.InvitationPage_panel)}
-        variants={FADE_DOWN_ANIMATION_VARIANTS}
-      >
-        <p
-          className={cn(styles.InvitationPage_message)}>
-          We&apos;re thrilled to hear that you&apos;ll be joining us for Ned&apos;s (Kirk) big birthday bash! You&apos;ll be our newest hero to join our heroic squad, and we&apos;re looking forward to having you with us.
-        </p>
-        <p className={cn(styles.InvitationPage_message)}>
-          We&apos;re planning an epic laser tag game, heroic snacks and drinks, and a costume contest for the bravest heroes. We&apos;re also counting on you to show off your superhero moves on the dance floor!
-        </p>
-        <p className={cn(styles.InvitationPage_message)}>
-          Thank you for joining us for this legendary celebration. We can&apos;t wait to see you there and make unforgettable heroic memories together.
-        </p>
-        <p className={cn(styles.InvitationPage_message, 'font-black')}>
-          Stay heroic,
-        </p>
-        <p className={cn(styles.InvitationPage_message, 'font-black')}>
-          - Kirk and the Bud-squad Heroes
-        </p>
       </motion.div>
     </Layout >
   )

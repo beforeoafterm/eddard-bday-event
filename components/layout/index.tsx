@@ -20,7 +20,7 @@ export default function Layout({
   const scrolled = useScroll(50)
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col min-h-screen'>
       <Meta {...meta} />
       <div
         className={cn(
@@ -31,7 +31,7 @@ export default function Layout({
             ['bg-white/0']: !scrolled,
           })}
       >
-        <div className='mx-5 flex h-16 max-w-screen-xl items-center justify-between xl:mx-auto'>
+        <div className='mx-8 flex h-16 max-w-screen-xl items-center justify-between xl:mx-auto'>
           <Link href='/' className='flex items-center font-display text-2xl no-underline text-sky-600'>
             <Image
               src='/ned-logo.svg'
@@ -44,7 +44,7 @@ export default function Layout({
           </Link>
         </div>
       </div>
-      <main className='flex flex-grow w-full flex-col items-center justify-center min-h-screen'>
+      <main className='flex flex-grow w-full flex-col items-center justify-center'>
         <motion.div
           className='max-w-screen-xl mx-auto pt-16 px-5 w-full'
           initial='hidden'
