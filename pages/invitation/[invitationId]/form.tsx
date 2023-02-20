@@ -63,14 +63,14 @@ export default function Form({ attendee }: InvitationPageProps) {
       //   updatedAttendeeProps.status = 'accomplished'
       // }
 
-      const response = await fetch(`/api/attendees/${attendee.id}`, {
-        body: JSON.stringify(values),
+      await fetch(`/api/attendees/${attendee.id}`, {
+        body: JSON.stringify(updatedAttendeeProps),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         },
         method: 'PATCH'
       })
-      const updatedAttendee: Attendee = await response.json()
+
       // TODO: Handle possible errors.
 
       // Redirect to accomplished page.
