@@ -54,6 +54,7 @@ export default function Form({ attendee }: InvitationPageProps) {
   const formik = useFormik({
     initialValues,
     onSubmit: async (values) => {
+      setIsLoading(true)
       const updatedAttendeeProps: Partial<Attendee> = {
         ...values,
         status: 'accomplished'
