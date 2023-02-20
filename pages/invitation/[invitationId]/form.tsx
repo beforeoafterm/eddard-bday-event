@@ -171,8 +171,6 @@ export default function Form({ attendee }: InvitationPageProps) {
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const { invitationId } = params as InvitationParams
-  console.log(invitationId)
-
   const attendee = await getAttendee(invitationId)
   return {
     props: {
