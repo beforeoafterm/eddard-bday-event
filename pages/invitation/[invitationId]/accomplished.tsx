@@ -4,16 +4,13 @@ import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
-import Button from '@/components/shared/button'
-import ButtonLink from '@/components/shared/button-link'
 import { LoadingSpinner } from '@/components/shared/icons'
-
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/lib/constants'
 import { getAttendee } from '@/lib/directus'
 
 import { InvitationPageProps, InvitationParams } from 'types/Invitation.types'
 
-import styles from './accomplished.module.css'
+import styles from './invitation.module.css'
 import Layout from '@/components/layout'
 
 export default function Accomplished({ attendee }: InvitationPageProps) {
@@ -41,24 +38,24 @@ export default function Accomplished({ attendee }: InvitationPageProps) {
   return (
     <Layout>
       <motion.div
-        className={cn(styles.Accomplished_panel)}
+        className={cn(styles.InvitationPage_panel)}
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
-        <h1 className={cn(styles.Accomplished_heading)}>
-          You&apos;re our newest hero, <span className={cn(styles.Accomplished_inviteeName)}>{attendee.heroName ?? attendee.firstName}</span>! 🦸🏻
+        <h1 className={cn(styles.InvitationPage_heading)}>
+          You&apos;re our newest hero, <span className={cn(styles.InvitationPage_inviteeName)}>{attendee.heroName ?? attendee.firstName}</span>! 🦸🏻
         </h1>
       </motion.div>
       <motion.div
-        className={cn(styles.Accomplished_panel)}
+        className={cn(styles.InvitationPage_panel)}
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
-        <div className={cn(styles.Accomplished_eventDetails)}>
-          <div className={cn(styles.Accomplished_eventDetail)}>
-            <h2 className={cn(styles.Accomplished_eventDetailLabel)}>Date and Time</h2>
-            <p className={cn(styles.Accomplished_eventDetailText)}>
+        <div className={cn(styles.InvitationPage_eventDetails)}>
+          <div className={cn(styles.InvitationPage_eventDetail)}>
+            <h2 className={cn(styles.InvitationPage_eventDetailLabel)}>Date and Time</h2>
+            <p className={cn(styles.InvitationPage_eventDetailText)}>
               March 5, 2023 - 5:00pm-8:00pm
               <a
-                className={cn(styles.Accomplished_a)}
+                className={cn(styles.InvitationPage_a)}
                 href='https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NjQxaHB2NGhlYWpzMnNhYmxlbHJjZDFhNzEgZmFtaWx5MDMwNjk4OTg0ODkyNDIyNzk4NzRAZw&amp;tmsrc=family03069898489242279874%40group.calendar.google.com'
                 target='_blank'
                 rel='noreferrer'
@@ -67,9 +64,9 @@ export default function Accomplished({ attendee }: InvitationPageProps) {
               </a>
             </p>
           </div>
-          <div className={cn(styles.Accomplished_eventDetail)}>
-            <h2 className={cn(styles.Accomplished_eventDetailLabel)}>Location</h2>
-            <p className={cn(styles.Accomplished_eventDetailText)}>
+          <div className={cn(styles.InvitationPage_eventDetail)}>
+            <h2 className={cn(styles.InvitationPage_eventDetailLabel)}>Location</h2>
+            <p className={cn(styles.InvitationPage_eventDetailText)}>
               Heroes HQ at Shangri-La Plaza Level 5, East Wing (beside Breakout PH)
             </p>
             <iframe
@@ -84,36 +81,25 @@ export default function Accomplished({ attendee }: InvitationPageProps) {
         </div>
       </motion.div>
       <motion.div
-        className={cn(styles.Accomplished_panel)}
+        className={cn(styles.InvitationPage_panel)}
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
         <p
-          className={cn(styles.Accomplished_message)}>
+          className={cn(styles.InvitationPage_message)}>
           We&apos;re thrilled to hear that you&apos;ll be joining us for Ned&apos;s (Kirk) big birthday bash! You&apos;ll be our newest hero to join our heroic squad, and we&apos;re looking forward to having you with us.
         </p>
-        <p className={cn(styles.Accomplished_message)}>
+        <p className={cn(styles.InvitationPage_message)}>
           We&apos;re planning an epic laser tag game, heroic snacks and drinks, and a costume contest for the bravest heroes. We&apos;re also counting on you to show off your superhero moves on the dance floor!
         </p>
-        <p className={cn(styles.Accomplished_message)}>
-          Ned is also excited to see what heroic gift you&apos;ll bring to his birthday bash. Don&apos;t forget to check out our gift suggestions or come up with something uniquely heroic.
-        </p>
-        <p className={cn(styles.Accomplished_message)}>
+        <p className={cn(styles.InvitationPage_message)}>
           Thank you for joining us for this legendary celebration. We can&apos;t wait to see you there and make unforgettable heroic memories together.
         </p>
-        <p className={cn(styles.Accomplished_message, 'font-black')}>
+        <p className={cn(styles.InvitationPage_message, 'font-black')}>
           Stay heroic,
         </p>
-        <p className={cn(styles.Accomplished_message, 'font-black')}>
-          - Kirk and the Hero&apos;s Bud-squad
+        <p className={cn(styles.InvitationPage_message, 'font-black')}>
+          - Kirk and the Bud-squad Heroes
         </p>
-      </motion.div>
-      <motion.div
-        className={cn(styles.Accomplished_buttons)}
-        variants={FADE_DOWN_ANIMATION_VARIANTS}
-      >
-        <ButtonLink
-          href='/gift-suggestions'
-          text='Check out what heroic gifts you can give!' />
       </motion.div>
     </Layout >
   )

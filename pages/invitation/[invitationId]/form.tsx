@@ -14,7 +14,8 @@ import { getAttendee } from '@/lib/directus'
 
 import { InvitationPageProps, InvitationParams } from 'types/Invitation.types'
 
-import styles from './form.module.css'
+import formStyles from './form.module.css'
+import invitationStyles from './invitation.module.css'
 import { Attendee } from 'types/Attendees.types'
 
 export default function Form({ attendee }: InvitationPageProps) {
@@ -93,60 +94,62 @@ export default function Form({ attendee }: InvitationPageProps) {
   return (
     <Layout>
       <motion.div
-        className={cn(styles.Form_panel)}
+        className={cn(invitationStyles.InvitationPage_panel)}
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
-        <h1 className={cn(styles.Form_heading)}>
-          I&apos;m happy you could join us, <span className={cn(styles.Form_inviteeName)}>{attendee.firstName}</span>!
+        <h1 className={cn(invitationStyles.InvitationPage_heading)}>
+          I&apos;m happy you could join us, <span className={cn(invitationStyles.InvitationPage_inviteeName)}>{attendee.firstName}</span>!
         </h1>
       </motion.div>
       <form onSubmit={formik.handleSubmit}>
         <motion.div
-          className={cn(styles.Form_panel)}
+          className={cn(invitationStyles.InvitationPage_panel)}
           variants={FADE_DOWN_ANIMATION_VARIANTS}
         >
-          <h2 className={cn(styles.Form_inputHeading)}>
+          <h2 className={cn(formStyles.Form_inputHeading)}>
             What&apos;s your email address?
           </h2>
           <input
             name='email'
             type='email'
-            className={cn(styles.Form_inputText)}
+            className={cn(formStyles.Form_inputText)}
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur} />
-          <small className='block'>We ask this so we can send out reminders and announcements about the party straight to your inbox!</small>
+          <small className='block'>
+            We ask this so we can send out reminders and announcements about the party straight to your inbox!
+          </small>
           {formik.errors.email && (
             <p className='font-bold text-red-500'>{formik.errors.email}</p>
           )}
         </motion.div>
         <motion.div
-          className={cn(styles.Form_panel)}
+          className={cn(invitationStyles.InvitationPage_panel)}
           variants={FADE_DOWN_ANIMATION_VARIANTS}
         >
-          <h2 className={cn(styles.Form_inputHeading)}>
+          <h2 className={cn(formStyles.Form_inputHeading)}>
             Are you going as a superhero?
           </h2>
 
-          <label className={cn(styles.Form_inputLabel)} htmlFor='isHeroYes'>
+          <label className={cn(formStyles.Form_inputLabel)} htmlFor='isHeroYes'>
             <input
               name='isHeroYes'
               type='radio'
               onChange={() => setIsHero(true)}
               checked={isHero} />
-            <span className={cn(styles.Form_inputLabelText)}>Yes!</span>
+            <span className={cn(formStyles.Form_inputLabelText)}>Yes!</span>
           </label>
-          <label className={cn(styles.Form_inputLabel)} htmlFor='isHeroNo'>
+          <label className={cn(formStyles.Form_inputLabel)} htmlFor='isHeroNo'>
             <input
               name='isHeroNo'
               type='radio'
               onChange={() => setIsHero(false)}
               checked={!isHero} />
-            <span className={cn(styles.Form_inputLabelText)}>No...</span>
+            <span className={cn(formStyles.Form_inputLabelText)}>No...</span>
           </label>
         </motion.div>
         <motion.div
-          className={cn(styles.Form_panel, {
+          className={cn(invitationStyles.InvitationPage_panel, {
             hidden: !isHero
           })}
           initial={{ opacity: 0 }}
@@ -154,22 +157,25 @@ export default function Form({ attendee }: InvitationPageProps) {
           exit={{ opacity: 0 }}
           variants={FADE_DOWN_ANIMATION_VARIANTS}
         >
-          <h2 className={cn(styles.Form_inputHeading)}>
+          <h2 className={cn(formStyles.Form_inputHeading)}>
             What&apos;s your superhero name?
           </h2>
           <input
-            className={cn(styles.Form_inputText)}
+            className={cn(formStyles.Form_inputText)}
             name='heroName'
             type='text'
             value={formik.values.heroName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur} />
+          <small className='block'>
+            Be creative with your hero name! We will be putting this on your hero badge and will be part of the costume contest.
+          </small>
           {formik.errors.heroName && (
             <p className='font-bold text-red-500'>{formik.errors.heroName}</p>
           )}
         </motion.div>
         <motion.div
-          className={cn(styles.Form_buttons)}
+          className={cn(invitationStyles.InvitationPage_buttons)}
           variants={FADE_DOWN_ANIMATION_VARIANTS}
         >
           <Button type='submit' theme='primary'>

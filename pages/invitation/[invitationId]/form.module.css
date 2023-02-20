@@ -1,16 +1,3 @@
-.Form_panel {
-  @apply mx-auto mt-8 w-full max-w-3xl border-4 border-black bg-white p-8;
-  box-shadow: 0 6px 6px -6px #000;
-}
-
-.Form_heading {
-  @apply font-display text-4xl tracking-wider;
-}
-
-.Form_inviteeName {
-  @apply bg-gradient-to-br from-sky-600 to-sky-300 bg-clip-text text-transparent;
-}
-
 .Form_inputHeading {
   @apply mb-4 font-display text-xl;
 }
@@ -30,18 +17,4 @@
 
 .Form_inputLabelText {
   @apply mx-2 inline-block text-2xl;
-}
-
-.Form_a {
-  @apply my-4 block text-lg underline underline-offset-4;
-}
-
-.Form_buttons {
-  @apply flex flex-col pb-12;
-}
-
-@screen lg {
-  .Form_buttons {
-    @apply flex-row justify-center space-x-8;
-  }
 }
