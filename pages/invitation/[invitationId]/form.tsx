@@ -54,6 +54,15 @@ export default function Form({ attendee }: InvitationPageProps) {
   const formik = useFormik({
     initialValues,
     onSubmit: async (values) => {
+      const updatedAttendeeProps: Partial<Attendee> = {
+        ...values,
+        status: 'accomplished'
+      }
+      // const group = attendee.groupedAttendees
+      // if (!group || group.length === 0) {
+      //   updatedAttendeeProps.status = 'accomplished'
+      // }
+
       const response = await fetch(`/api/attendees/${attendee.id}`, {
         body: JSON.stringify(values),
         headers: {
@@ -62,10 +71,12 @@ export default function Form({ attendee }: InvitationPageProps) {
         method: 'PATCH'
       })
       const updatedAttendee: Attendee = await response.json()
-      const group = updatedAttendee.groupedAttendees
-      if (group && group.length !== 0) {
+      // TODO: Handle possible errors.
 
-      }
+      // Redirect to accomplished page.
+      router.push({
+        pathname: `/invitation/${attendee.id}/accomplished`
+      })
     },
     validationSchema: isHero ? isHeroSchema : isNotHeroSchema,
   })
