@@ -52,7 +52,9 @@ export default function Declined({ attendee }: InvitationPageProps) {
 
   if (isLoading) {
     return (
-      <LoadingSpinner />
+      <Layout>
+        <LoadingSpinner />
+      </Layout>
     )
   }
 
