@@ -12,6 +12,6 @@ export type Attendee = {
   groupedAttendees: Attendee[]
 }
 
-export type AttendeeStatus = 'confirmed' | 'invited' | 'declined'
+export type AttendeeStatus = 'accomplished' | 'confirmed' | 'invited' | 'declined'
 
 type AttendeeAge = 'child' | 'adult'
