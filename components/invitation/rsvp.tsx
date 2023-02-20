@@ -109,6 +109,14 @@ export default function Rsvp({
             <p className={cn(styles.Rsvp_eventDetailText)}>
               Heroes HQ at Shangri-La Plaza Level 5, East Wing (beside Breakout PH)
             </p>
+            <iframe
+              src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.3191803388395!2d121.05299981488221!3d14.580879689815008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c96971f3486d%3A0x318c0e552e88a27c!2sHeroes%20Headquarters%20Shangri-La%20Plaza!5e0!3m2!1sen!2sph!4v1676893984278!5m2!1sen!2sph'
+              width='600'
+              height='450'
+              className={cn('border-4', 'border-black', 'mt-12', 'w-full')}
+              allowFullScreen={true}
+              loading='lazy'
+              referrerPolicy='no-referrer-when-downgrade'></iframe>
           </div>
         </div>
         <p
