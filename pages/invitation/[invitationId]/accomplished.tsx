@@ -42,7 +42,7 @@ export default function Accomplished({ attendee }: InvitationPageProps) {
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
         <h1 className={cn(styles.InvitationPage_heading)}>
-          You&apos;re our newest hero, <span className={cn(styles.InvitationPage_inviteeName)}>{attendee.heroName ?? attendee.firstName}</span>! 🦸🏻
+          You&apos;re our newest hero, <span className={cn(styles.InvitationPage_inviteeName)}>{attendee.heroName || attendee.firstName}</span>! 🦸🏻
         </h1>
       </motion.div>
       <motion.div
