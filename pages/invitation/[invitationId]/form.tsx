@@ -57,13 +57,13 @@ export default function Form({ attendee }: InvitationPageProps) {
     onSubmit: async (values) => {
       setIsLoading(true)
       const updatedAttendeeProps: Partial<Attendee> = {
-        ...values,
-        status: 'accomplished'
+        ...values
       }
-      // const group = attendee.groupedAttendees
-      // if (!group || group.length === 0) {
-      //   updatedAttendeeProps.status = 'accomplished'
-      // }
+
+      const group = attendee.groupedAttendees
+      if (!attendee.canInvite && (!group || group.length === 0)) {
+        updatedAttendeeProps.status = 'accomplished'
+      }
 
       await fetch(`/api/attendees/${attendee.id}`, {
         body: JSON.stringify(updatedAttendeeProps),
@@ -74,6 +74,13 @@ export default function Form({ attendee }: InvitationPageProps) {
       })
 
       // TODO: Handle possible errors.
+
+      // Redirect to invitation group form.
+      if (attendee.canInvite || (group && group.length !== 0)) {
+        return await router.push({
+          pathname: `/invitation/${attendee.id}/group-form`
+        })
+      }
 
       // Redirect to accomplished page.
       router.push({
