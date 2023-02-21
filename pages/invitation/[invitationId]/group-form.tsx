@@ -19,14 +19,14 @@ export default function GroupForm({ attendee }: InvitationPageProps) {
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    if (!attendee.email || !attendee.groupedAttendees || attendee.groupedAttendees.length === 0) {
+    if (!attendee.email || !attendee.groupedAttendees || attendee.groupedAttendees.length === 0 || attendee.status === 'accomplished') {
       router.push({
         pathname: `/invitation/${attendee.id}`
       })
       return
     }
     setIsLoading(false)
-  }, [router, attendee.email, attendee.id, attendee.canInvite, attendee.groupedAttendees])
+  }, [router, attendee.email, attendee.id, attendee.canInvite, attendee.groupedAttendees, attendee.status])
 
   const confirmGroupedAttendees = async () => {
     setIsLoading(true)
