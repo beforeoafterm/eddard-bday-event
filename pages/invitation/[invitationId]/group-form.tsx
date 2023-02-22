@@ -19,7 +19,11 @@ export default function GroupForm({ attendee }: InvitationPageProps) {
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    if (!attendee.email || !attendee.groupedAttendees || attendee.groupedAttendees.length === 0 || attendee.status === 'accomplished') {
+    if (
+      !attendee.email ||
+      (!attendee.canInvite && attendee.groupedAttendees.length === 0) ||
+      attendee.status === 'accomplished'
+    ) {
       router.push({
         pathname: `/invitation/${attendee.id}`
       })
