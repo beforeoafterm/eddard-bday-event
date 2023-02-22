@@ -89,7 +89,7 @@ export default function Rsvp({ attendee }: InvitationPageProps) {
           <div className={cn(styles.InvitationPage_eventDetail)}>
             <h2 className={cn(styles.InvitationPage_eventDetailLabel)}>Date and Time</h2>
             <p className={cn(styles.InvitationPage_eventDetailText)}>
-              March 5, 2023 - 5:00pm-8:00pm
+              March 5, 2023 - 4:30pm-8:00pm
               <a
                 className={cn(styles.InvitationPage_a)}
                 href='https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NjQxaHB2NGhlYWpzMnNhYmxlbHJjZDFhNzEgZmFtaWx5MDMwNjk4OTg0ODkyNDIyNzk4NzRAZw&amp;tmsrc=family03069898489242279874%40group.calendar.google.com'
