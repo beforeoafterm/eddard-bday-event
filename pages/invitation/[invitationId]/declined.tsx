@@ -87,14 +87,6 @@ export default function Declined({ attendee }: InvitationPageProps) {
           - Kirk and the Bud-squad Heroes
         </p>
       </motion.div>
-      <motion.div
-        className={cn(styles.InvitationPage_buttons)}
-        variants={FADE_DOWN_ANIMATION_VARIANTS}
-      >
-        <Button onClick={confirmInvitation}>
-          I change my mind, I want to go!
-        </Button>
-      </motion.div>
     </Layout>
   )
 }
